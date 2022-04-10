@@ -1,6 +1,7 @@
 .App {
-    background: #b06cff;
-    height: 100vh;
+    background: #bc93ff;
+    min-height: 100vh;
+    max-height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
 };
