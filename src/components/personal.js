@@ -2,7 +2,7 @@ import { Component } from "react";
 
 class Personal extends Component {
     showCards = () => {
-        this.props.showCard();
+        this.props.showCard1();
     };
 
     gettingValues = (e) => {
@@ -21,7 +21,7 @@ class Personal extends Component {
                         Personal Information 
                     </h1>
 
-                    <p onClick={this.showCards} id='arrow'>
+                    <p onClick={this.showCards} id='arrow1'>
                         &rarr;
                     </p>
                 </div>
@@ -39,12 +39,12 @@ class Personal extends Component {
                         </div>
 
                         <div className="inputDiv" id='emaildiv'>
-                            <label htmlFor="email">email: </label>
+                            <label htmlFor="email">Email: </label>
                             <input id='email' type='text' placeholder="tenzin@gmail.com" onChange={this.gettingValues}></input>
                         </div>
 
                         <div className="inputDiv" id='phonediv'>
-                            <label htmlFor="phone">phone: </label>
+                            <label htmlFor="phone">Phone: </label>
                             <input id='phone' type='text' placeholder="1211212211" onChange={this.gettingValues}></input>
                         </div>
 

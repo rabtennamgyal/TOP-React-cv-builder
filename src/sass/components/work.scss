@@ -1,11 +1,11 @@
-.personal {
+.work {
     //min-height: 10%;
     //max-height: auto;
     //height: auto;
     // display: grid;
     // grid-template-rows: 1fr 2fr;
 
-    .personalTitle {
+    .workTitle {
         display: flex;
         align-items: center;
 
@@ -31,7 +31,7 @@
         };
     }
 
-    .personalInfo {
+    .workInfo {
         height: 0;
         visibility: hidden;
         box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -101,19 +101,20 @@
                 }
             }
 
-            #firstnamediv {
+            #positiondiv {
                 grid-column: 1 / 2;
             }
 
-            #lastnamediv {
+            #employerdiv {
                 grid-column: 2 / 3;
             }
 
-            #addressdiv {
+            #descriptiondiv {
                 grid-column: 1 / 3;
 
-                #address {
-                    width: 100%;
+                textarea {
+                    resize: none;
+                    height: 40px;
                 }
             }
         }
