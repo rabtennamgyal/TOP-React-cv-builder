@@ -1,13 +1,8 @@
 import { Component } from "react";
 
 class Work extends Component {
-
     showCards = () => {
         this.props.showCard3();
-    };
-
-    gettingValues = (e) => {
-        this.props.getInputValue3(e.target.value);
     };
 
     submitData = () => {

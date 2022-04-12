@@ -5,7 +5,7 @@ class Title extends Component {
         return (
             <div className="Title">
                 <h1>
-                    CV BUILDER
+                    Build a new cv 🤞
                 </h1>
             </div>
         )

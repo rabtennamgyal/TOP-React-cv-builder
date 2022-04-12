@@ -6,15 +6,6 @@ import Work from "../components/work";
 
 
 class CVBuilder extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            personal: [],
-            education: [],
-            work: []
-        };
-    };
-
     showInputCard1 = () => {
         const arrow = document.getElementById('arrow1');
         const personalInfo = document.querySelector('.personalInfo');
@@ -48,7 +39,6 @@ class CVBuilder extends Component {
             arrow.style.transform = 'rotate(360deg)';
         }
     };
-
     
     showInputCard3 = () => {
         const arrow = document.getElementById('arrow3');
@@ -67,49 +57,17 @@ class CVBuilder extends Component {
         }
     };
 
-    getInputValue = (data) => {
-        let newArr = this.state.personal.concat(data);
-        this.setState({
-            personal: newArr
-        });
-    };
-
-    getInputValue2 = (data) => {
-        let newArr = this.state.education.concat(data);
-        this.setState({
-            education: newArr
-        });
-    };
-
-    getInputValue3 = (data) => {
-        let newArr = this.state.work.concat(data);
-        this.setState({
-            work: newArr
-        });
+    onSubmit = (data) => {
+        this.props.getData(data);
     };
     
-    submitDatas = () => {
-        console.log(this.state.personal);
-        console.log(this.state.education);
-        console.log(this.state.work);
-    };
-
     render() {
         return (
             <div className="cvbuilder">
                 <Title />
-                <Personal 
-                showCard1={this.showInputCard1} submitDatas={this.submitDatas} 
-                getInputValue={this.getInputValue}
-                />
-                <Education 
-                showCard2={this.showInputCard2} submitDatas={this.submitDatas} 
-                getInputValue2={this.getInputValue2}
-                />
-                <Work 
-                showCard3={this.showInputCard3} submitDatas={this.submitDatas} 
-                getInputValue3={this.getInputValue3}
-                />
+                <Personal showCard1={this.showInputCard1} onSubmit={this.onSubmit} />
+                <Education showCard2={this.showInputCard2} />
+                <Work showCard2={this.showInputCard2}/>
             </div>
         );
     };
