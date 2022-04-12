@@ -47,6 +47,7 @@ class Personal extends Component {
     };
 
     submitData = (e) => {
+        e.preventDefault();
         this.props.onSubmit(this.state);
     };
 

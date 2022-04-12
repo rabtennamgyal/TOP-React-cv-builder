@@ -53,8 +53,9 @@ class Education extends Component {
         this.props.showCard2();
     };
 
-    submitData = () => {
-        console.log(this.state);
+    submitData = (e) => {
+        e.preventDefault();
+        this.props.onSubmit2(this.state);
     };
 
     render() {

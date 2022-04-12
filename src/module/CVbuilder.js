@@ -60,14 +60,22 @@ class CVBuilder extends Component {
     onSubmit = (data) => {
         this.props.getData(data);
     };
+
+    onSubmit2 = (data) => {
+        this.props.getData2(data);
+    };
+
+    onSubmit3 = (data) => {
+        this.props.getData3(data);
+    };
     
     render() {
         return (
             <div className="cvbuilder">
                 <Title />
                 <Personal showCard1={this.showInputCard1} onSubmit={this.onSubmit} />
-                <Education showCard2={this.showInputCard2} />
-                <Work showCard2={this.showInputCard2}/>
+                <Education showCard2={this.showInputCard2} onSubmit2={this.onSubmit2} />
+                <Work showCard3={this.showInputCard3} onSubmit3={this.onSubmit3} />
             </div>
         );
     };
