@@ -49,6 +49,8 @@ class Work extends Component {
     submitData = (e) => {
         e.preventDefault();
         this.props.onSubmit3(this.state);
+        const inputs = document.querySelectorAll('.inputw');
+        inputs.forEach(el => el.value = '');
     };
 
     render() {
@@ -60,7 +62,7 @@ class Work extends Component {
                     </h1>
 
                     <p onClick={this.showCards} id='arrow3'>
-                        &rarr;
+                        👉
                     </p>
                 </div>
 
@@ -68,27 +70,27 @@ class Work extends Component {
                     <form>
                         <div className="inputDiv" id='positiondiv'>
                             <label htmlFor="position">Position: </label>
-                            <input id='position' type='text' onInput={this.setPosition}></input>
+                            <input className="inputw" id='position' type='text' onInput={this.setPosition}></input>
                         </div>
 
                         <div className="inputDiv" id='employerdiv'>
                             <label htmlFor="employer">Employer: </label>
-                            <input id='employer' type='text' onInput={this.setEmployer}></input>
+                            <input  className="inputw" id='employer' type='text' onInput={this.setEmployer}></input>
                         </div>
 
                         <div className="inputDiv" id='startDatediv'>
                             <label htmlFor="startDate">Start Date: </label>
-                            <input id='startDate' type='date' onInput={this.setStartDate}></input>
+                            <input className="inputw" id='startDate' type='date' onInput={this.setStartDate}></input>
                         </div>
 
                         <div className="inputDiv" id='endDatediv'>
                             <label htmlFor="endDate">End Date: </label>
-                            <input id='endDate' type='date' onInput={this.setEndDate}></input>
+                            <input className="inputw" id='endDate' type='date' onInput={this.setEndDate}></input>
                         </div>
 
                         <div className="inputDiv" id='descriptiondiv'>
                             <label htmlFor="description">Descritption: </label>
-                            <textarea id='description' type='text' onInput={this.setDescription}></textarea>
+                            <textarea className="inputw" id='description' type='text' onInput={this.setDescription}></textarea>
                         </div>
 
                         <div id="submitDiv">

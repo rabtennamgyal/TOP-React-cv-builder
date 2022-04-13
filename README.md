@@ -1,5 +1,6 @@
-*. I think the height change causes all the surronding to change, thus the changes in the divs.
-
+*. Need to empty out the array in state when the user decides to edit the already submitted data.
+   I need to use concat or something. And also I can't get mutate the state without using setState.
+   Personal can only contain one state of object containing datas.
 
 
 

@@ -56,6 +56,8 @@ class Education extends Component {
     submitData = (e) => {
         e.preventDefault();
         this.props.onSubmit2(this.state);
+        const inputs = document.querySelectorAll('.inpute');
+        inputs.forEach(el => el.value = '');
     };
 
     render() {
@@ -67,7 +69,7 @@ class Education extends Component {
                     </h1>
 
                     <p onClick={this.showCards} id='arrow2'>
-                        &rarr;
+                        👉
                     </p>
                 </div>
 
@@ -75,32 +77,32 @@ class Education extends Component {
                     <form>
                         <div className="inputDiv" id='schoolNamediv'>
                             <label htmlFor="schoolName">School Name: </label>
-                            <input id='schoolName' type='text' onInput={this.setSchoolName}></input>
+                            <input className="inpute" id='schoolName' type='text' onInput={this.setSchoolName}></input>
                         </div>
 
                         <div className="inputDiv" id='schoolGraduationdiv'>
                             <label htmlFor="schoolGraduation">Graduation: </label>
-                            <input id='schoolGraduation' type='date' onInput={this.setSchoolGraduation}></input>
+                            <input className="inpute" id='schoolGraduation' type='date' onInput={this.setSchoolGraduation}></input>
                         </div>
 
                         <div className="inputDiv" id='collegeNamediv'>
                             <label htmlFor="collegeName">College Name: </label>
-                            <input id='collegeName' type='text' onInput={this.setCollegeName}></input>
+                            <input className="inpute" id='collegeName' type='text' onInput={this.setCollegeName}></input>
                         </div>
 
                         <div className="inputDiv" id='collgeGraduationdiv'>
                             <label htmlFor="collgeGraduation">College Graduation: </label>
-                            <input id='collgeGraduation' type='date' onInput={this.setCollegeGraduation}></input>
+                            <input className="inpute" id='collgeGraduation' type='date' onInput={this.setCollegeGraduation}></input>
                         </div>
 
                         <div className="inputDiv" id='studydiv'>
                             <label htmlFor="study">Field Of Study: </label>
-                            <input id='study' type='text' placeholder="Computer Science" onInput={this.setStudy}></input>
+                            <input className="inpute" id='study' type='text' placeholder="Computer Science" onInput={this.setStudy}></input>
                         </div>
 
                         <div className="inputDiv" id='degreediv'>
                             <label htmlFor="degree">Degree: </label>
-                            <select id="degrees" onInput={this.setDegree}>
+                            <select className="inpute" id="degrees" onInput={this.setDegree}>
                                 <option value="Associate's Degree">Associate's Degree</option>
                                 <option value="Bachelor's Degree">Bachelor's Degree</option>
                                 <option value="Master's Degree">Master's Degree</option>
