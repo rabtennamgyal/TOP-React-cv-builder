@@ -20,10 +20,10 @@ class App extends React.Component {
 
   getData = (data) => {
     if (this.state.personal.length !== 0) {
-      let newArr = this.state.personal.splice(0, this.state.personal.length - 1);
-      newArr.push(data);
+      const personal = this.state.personal.slice(0, this.state.personal.length - 1);
+      personal.push(data);
       this.setState({
-        personal: this.state.splice(0, this.setState)
+        personal: personal
       });
     } else {
       this.state.personal.push(data);
@@ -38,8 +38,9 @@ class App extends React.Component {
         Phone: Phone,
         Address: Address
       });
-    })
-    console.log(this.state.personal);
+    });
+
+    setTimeout(() => console.log(this.state.personal));
   };
 
   getData2 = (data) => {
@@ -51,14 +52,26 @@ class App extends React.Component {
   };
 
   editData = () => {
-    console.log('editing');
     const arrow = document.getElementById('arrow1');
     const personalInfo = document.querySelector('.personalInfo');
 
     const FirstName = this.state.FirstName;
     const firstNameinput = document.getElementById('firstName');
+    const LastName = this.state.LastName;
+    const lastNameinput = document.getElementById('lastName');
+    const Email = this.state.Email;
+    const emailinput = document.getElementById('email');
+    const Phone = this.state.Phone;
+    const phoneinput = document.getElementById('phone');
+    const Address = this.state.Address;
+    const addressinput = document.getElementById('address');
+
+
     firstNameinput.value = FirstName;
-    console.log(FirstName);
+    lastNameinput.value = LastName;
+    emailinput.value = Email;
+    phoneinput.value = Phone;
+    addressinput.value = Address;
 
 
     if (personalInfo.classList.contains('open')) {
