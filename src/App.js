@@ -19,7 +19,12 @@ class App extends React.Component {
       CollegeName: '',
       CollegeGraduation: '',
       Study: '',
-      Degree: ''
+      Degree: '',
+      Position: '',
+      Employer: '',
+      StartDate: '',
+      EndDate: '',
+      Description: ''
     }
   };
 
@@ -71,7 +76,28 @@ class App extends React.Component {
   };
 
   getData3 = (data) => {
-    this.state.work.push(data);
+    if (this.state.work.length !== 0) {
+      const work = this.state.work.slice(0, this.state.work.length - 1);
+      work.push(data);
+      this.setState({
+        work: work
+      });
+    } else {
+      this.state.work.push(data);
+    };
+
+    setTimeout(() => {
+      const { Position, Employer, StartDate, EndDate, Description } = this.state.work[0];
+      this.setState({
+        Position: Position,
+        Employer: Employer,
+        StartDate: StartDate,
+        EndDate: EndDate,
+        Description: Description
+      });
+
+      console.log(this.state.work);
+    });
   };
 
   editData = () => {
@@ -141,11 +167,46 @@ class App extends React.Component {
     };
   };
 
+  editData3 = () => {
+    const arrow = document.getElementById('arrow3');
+    const workInfo = document.querySelector('.workInfo');
+
+    const Position = this.state.Position;
+    const positoninput = document.getElementById('position');
+    const Employer = this.state.Employer;
+    const employerinput = document.getElementById('employer');
+    const StartDate = this.state.StartDate;
+    const startDateinput = document.getElementById('startDate');
+    const EndDate = this.state.EndDate;
+    const endDateinput = document.getElementById('endDate');
+    const Description = this.state.Description;
+    const descriptioninput = document.getElementById('description');
+
+    positoninput.value = Position;
+    employerinput.value = Employer;
+    startDateinput.value = StartDate;
+    endDateinput.value = EndDate;
+    descriptioninput.value = Description;
+
+    if (workInfo.classList.contains('open')) {
+      return;
+    } else {
+      workInfo.classList.add('open');
+      workInfo.style.height = '25rem';
+      workInfo.style.visibility = 'visible';
+      arrow.style.transform = 'rotate(90deg)';
+    };
+  };
+
+  print = () => {
+    console.log('this function will create the final cv for print.')
+  };
 
   render() {
     const { 
       FirstName, LastName, Email, Phone, Address,
-      SchoolName, SchoolGraduation, CollegeName, CollegeGraduation, Study, Degree
+      SchoolName, SchoolGraduation, CollegeName, CollegeGraduation, Study, Degree,
+      Position, Employer, StartDate, EndDate, Description
     } = this.state;
 
     return (
@@ -168,6 +229,15 @@ class App extends React.Component {
         Study={Study}
         Degree={Degree}
         editData2={this.editData2}
+
+        Position={Position}
+        Employer={Employer}
+        StartDate={StartDate}
+        EndDate={EndDate}
+        Description={Description}
+        editData3={this.editData3}
+
+        print={this.print}
         />
       </div>
     );

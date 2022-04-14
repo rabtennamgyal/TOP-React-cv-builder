@@ -7,6 +7,14 @@ class FinalCV extends React.Component {
     editingData2 = () => {
         this.props.editData2();
     };
+
+    editingData3 = () => {
+        this.props.editData3();
+    };
+
+    printDoc = () => {
+        this.props.print();
+    };
     
     render() {
         return (
@@ -18,9 +26,9 @@ class FinalCV extends React.Component {
                                 {this.props.FirstName || 'Tenzin'} {this.props.LastName || 'Tsering'}
                             </h1>
     
-                            <p className="editable">
+                            {/* <p className="editable">
                                 {this.props.className || 'Front-End Developer'}
-                            </p>
+                            </p> */}
                         </div>
 
                         <div className="divOne2">
@@ -112,6 +120,72 @@ class FinalCV extends React.Component {
                                 Edit
                             </button>
                         </div>
+                    </div>
+
+                    <div className="divThree">
+                        <div className="divThree1">
+                            <h1>
+                                <span>
+                                    Position: 
+                                </span>
+
+                                <p>
+                                    {this.props.Position || 'Front-End Engineer'}
+                                </p>
+                            </h1>
+
+                            <h1>
+                                <span>
+                                    Employer: 
+                                </span>
+
+                                <p>
+                                    {this.props.Employer || 'Coinbase'}
+                                </p>
+                            </h1>
+
+                            <h1>
+                                <span>
+                                    Start Date: 
+                                </span>
+
+                                <p>
+                                    {this.props.StartDate || '06.11.2022'}
+                                </p>
+                            </h1>
+
+                            <h1>
+                                <span>
+                                    End Date: 
+                                </span>
+
+                                <p>
+                                    {this.props.EndDate || '09.11.2027'}
+                                </p>
+                            </h1>
+
+                            <h1 id='word-break'>
+                                <span>
+                                    Description:
+                                </span>
+
+                                <p>
+                                    {this.props.Description || 'Worked as a Front-End Engineer for Coinbase for almost 5 years. Mainly worked with our designers to ensure that our users have a smooth experience using our website.'}
+                                </p>
+                            </h1>
+                        </div>
+                        
+                        <div className="editDataDiv3">
+                            <button onClick={this.editingData3}>
+                                Edit
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="divFour">
+                        <button id='print' onClick={this.printDoc}>
+                            Submit
+                        </button>
                     </div>
                 </div>
             </div>
