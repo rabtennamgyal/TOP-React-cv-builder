@@ -2,7 +2,6 @@ import React from "react";
 import CVBuilder from "./module/CVbuilder";
 import FinalCV from "./module/FinalCV";
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +13,13 @@ class App extends React.Component {
       LastName: '',
       Email: '',
       Phone: '',
-      Address: ''
+      Address: '',
+      SchoolName: '',
+      SchoolGraduation: '',
+      CollegeName: '',
+      CollegeGraduation: '',
+      Study: '',
+      Degree: ''
     }
   };
 
@@ -39,12 +44,30 @@ class App extends React.Component {
         Address: Address
       });
     });
-
-    setTimeout(() => console.log(this.state.personal));
   };
 
   getData2 = (data) => {
-    this.state.education.push(data);
+    if (this.state.education.length !== 0) {
+      const education = this.state.education.slice(0, this.state.education.length - 1);
+      education.push(data);
+      this.setState({
+        education: education
+      });
+    } else {
+      this.state.education.push(data);
+    };
+
+    setTimeout(() => {
+      const { SchoolName, SchoolGraduation, CollegeName, CollegeGraduation, Study, Degree } = this.state.education[0];
+      this.setState({
+        SchoolName: SchoolName,
+        SchoolGraduation: SchoolGraduation,
+        CollegeName: CollegeName,
+        CollegeGraduation: CollegeGraduation,
+        Study: Study,
+        Degree: Degree
+      });
+    });
   };
 
   getData3 = (data) => {
@@ -84,8 +107,46 @@ class App extends React.Component {
     };
   };
 
+  editData2 = () => {
+    const arrow = document.getElementById('arrow2');
+    const educationInfo = document.querySelector('.educationInfo');
+
+    const SchoolName = this.state.SchoolName;
+    const schoolNameinput = document.getElementById('schoolName');
+    const SchoolGraduation = this.state.SchoolGraduation;
+    const schoolGraduationinput = document.getElementById('schoolGraduation');
+    const CollegeName = this.state.CollegeName;
+    const collegeNameinput = document.getElementById('collegeName');
+    const CollegeGraduation = this.state.CollegeGraduation;
+    const collgeGraduationinput = document.getElementById('collegeGraduation');
+    const Study = this.state.Study;
+    const studyinput = document.getElementById('study');
+    const Degree = this.state.Degree;
+    const degreeinput = document.getElementById('degrees');
+    
+    schoolNameinput.value = SchoolName;
+    schoolGraduationinput.value = SchoolGraduation;
+    collegeNameinput.value = CollegeName;
+    collgeGraduationinput.value = CollegeGraduation;
+    studyinput.value = Study;
+    degreeinput.value = Degree;
+
+    if (educationInfo.classList.contains('open')) {
+      return;
+    } else {
+      educationInfo.classList.add('open');
+      educationInfo.style.height = '25rem';
+      educationInfo.style.visibility = 'visible';
+      arrow.style.transform = 'rotate(90deg)';
+    };
+  };
+
+
   render() {
-    const { FirstName, LastName, Email, Phone, Address } = this.state;
+    const { 
+      FirstName, LastName, Email, Phone, Address,
+      SchoolName, SchoolGraduation, CollegeName, CollegeGraduation, Study, Degree
+    } = this.state;
 
     return (
       <div className="App">
@@ -99,6 +160,14 @@ class App extends React.Component {
         Phone={Phone}
         Address={Address}
         editData={this.editData}
+
+        SchoolName={SchoolName}
+        SchoolGraduation={SchoolGraduation}
+        CollegeName={CollegeName}
+        CollegeGraduation={CollegeGraduation}
+        Study={Study}
+        Degree={Degree}
+        editData2={this.editData2}
         />
       </div>
     );

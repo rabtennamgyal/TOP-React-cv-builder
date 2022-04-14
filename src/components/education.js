@@ -92,7 +92,7 @@ class Education extends Component {
 
                         <div className="inputDiv" id='collgeGraduationdiv'>
                             <label htmlFor="collgeGraduation">College Graduation: </label>
-                            <input className="inpute" id='collgeGraduation' type='date' onInput={this.setCollegeGraduation}></input>
+                            <input className="inpute" id='collegeGraduation' type='date' onInput={this.setCollegeGraduation}></input>
                         </div>
 
                         <div className="inputDiv" id='studydiv'>
